@@ -10,34 +10,49 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
+    document.getElementById("nextBtn").innerHTML = "Apply";
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
-  fixStepIndicator(n)
+  fixStepIndicator(n);
 }
 
 function nextPrev(n) {
-  var x = document.getElementsByTagName("tab");
+  var x = document.getElementsByClassName("tab");
+  var currentTabValid = validateForm(currentTab);
 
-  if (n == 1 && !validateForm()) return false;
+  if (n == 1 && !currentTabValid) return false;
   x[currentTab].style.display = "none";
   currentTab = currentTab + n;
   if (currentTab >= x.length) {
     document.getElementById("regForm").submit();
+    showAlert();
     return false;
   }
   showTab(currentTab);
 }
 
-function validateForm() {
+
+  // Function to show the alert message and navigate to about.html
+  function showAlert() {
+    alert("Submission Done");
+    window.location.href = "about.html";
+  }
+
+ // Function to handle the form submission
+ document.getElementById("regForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission behavior
+  nextPrev(1); // Proceed to the next step
+});
+
+function validateForm(n) {
   var x, y, i, r, valid = true;
   x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  r = x[currentTab].getElementsByClassName("form-check-input");
+  y = x[n].getElementsByTagName("input");
+  r = x[n].getElementsByClassName("form-check-input");
 
   for (i = 0; i < y.length; i++) {
-    if (y[i].value == "") {
+    if (y[i].hasAttribute("required") && y[i].value == "") {
       y[i].className += " invalid";
       valid = false;
     }
@@ -72,8 +87,6 @@ function fixStepIndicator(n) {
   }
   x[n].className += " active";
 }
-
-
 //   // jQuery time
 //   var current_fs, next_fs, previous_fs; //fieldsets
 //   var left, opacity, scale; //fieldset properties which we will animate
@@ -151,12 +164,3 @@ function fixStepIndicator(n) {
 //           easing: 'easeInOutBack'
 //       });
 //   });
-
- 
-//   $(".submit").click(function () {
-//       // return alert('done submission! Have a great day');
-//       return alert('done submission! Have a great day');
-//   })
-//   $(".submit").click(function () {
-//       window.location.href = "about.html"; 
-//   })

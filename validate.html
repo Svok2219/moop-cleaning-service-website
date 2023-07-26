@@ -236,13 +236,9 @@ button:hover {
     <!-- MultiStep Form -->
   
 
-    <form id="regForm" action="/action_page.php">
+    <form id="regForm" action="/about.html">
         <h1 style="color: #187D90;" class="mb-3">Application</h1>
-        <!-- One "tab" for each step in the form: -->
-        <div class="tab">Name:
-          <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p>
-          <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p>
-        </div>
+       
         <div class="tab">
             
             <h2 class="fs-title">Poland: What city/region do you want to work in?</h2>
@@ -250,40 +246,114 @@ button:hover {
             
 
             <div class="form-check d-flex justify-content-between  my-3  my-md-0">
-                <input required type="radio" class="form-check-input radio" name="selfEmployed" id="selfYes" value="Yes">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="selfYes" value="Yes">
 
                 <label class="form-check-label" for="selfYes">A) Yes, I am registered as self-employed and have a REGON number</label>
 
             </div>
             <div class="form-check  my-3  my-md-0">
-                <input required type="radio" class="form-check-input radio" name="selfEmployed" id="companyYes" value="CompanyYes">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="companyYes" value="CompanyYes">
                 <label class="form-check-label" for="companyYes">B) No, but I have a cleaning company with a REGON number</label>
             </div>
             <div class="form-check  my-3  my-md-0">
-                <input required type="radio" class="form-check-input radio" name="selfEmployed" id="registerYes" value="RegisterYes">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="registerYes" value="RegisterYes">
                 <label class="form-check-label" for="registerYes">C) No, but I want to register as a self-employed cleaner</label>
             </div>
             <div class="form-check  my-3  my-md-0">
-                <input required type="radio" class="form-check-input radio" name="selfEmployed" id="jobYes" value="JobYes">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="jobYes" value="JobYes">
                 <label class="form-check-label" for="jobYes">D) No, I am looking for a traditional job</label>
             </div>
 
           </div>
-        <div class="tab">Contact Info:
-          <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
-          <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+
+        <div class="tab">
+          <h2 class="fs-title">Poland: Are you registered as a self-employed person with REGON number? This question is required.*</h2>
+
+          <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="radio-group-2" id="selfYes" value="Yes">
+            <label class="form-check-label" for="selfYes">A) Yes, I am registered as self-employed and have a REGON number</label>
         </div>
-        <div class="tab">Birthday:
-          <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-          <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
-          <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="radio-group-2" id="companyYes" value="CompanyYes">
+            <label class="form-check-label" for="companyYes">B) No, but I have a cleaning company with a REGON number</label>
         </div>
-        <div class="tab">Login Info:
-          <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-          <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="radio-group-2" id="registerYes" value="RegisterYes">
+            <label class="form-check-label" for="registerYes">C) No, but I want to register as a self-employed cleaner</label>
+        </div>
         </div>
 
+                  
 
+        <div class="tab">
+          <h2 class="fs-title">Are you a VAT-payer?*</h2>
+
+          <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="vatPayer" id="vatYes" value="Yes">
+            <label class="form-check-label" for="vatYes">A) Yes</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="vatPayer" id="vatNo" value="No">
+            <label class="form-check-label" for="vatNo">B) NO, I am exempt from VAT</label>
+        </div>
+
+        </div>
+
+        <div class="tab">
+          <h2 class="fs-title">What is the minimum rate per hour (in Euros) you can work for?</h2>
+          <input required type="number"  name="wage" placeholder="Type your answer here" />
+      </div>
+
+        <div class="tab">
+          <h2 class="fs-title">What level is your English?*</h2>
+          <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english0" value="None">
+            <label class="form-check-label" for="english0">A) I do not speak English</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english1" value="Basic">
+            <label class="form-check-label" for="english1">B) Basic</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english2" value="Good">
+            <label class="form-check-label" for="english2">C) Good</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english3" value="Excellent">
+            <label class="form-check-label" for="english3">D) Excellent</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english4" value="Native">
+            <label class="form-check-label" for="english4">E) I'm a native English Speaker</label>
+        </div>
+        </div>
+
+          <div class="tab">
+                <h2 class="fs-title">What is your email address??</h2>
+  
+                <input required type="email" name="email" placeholder="Type your answer here" />
+
+          </div>
+
+       
+
+      <div class="tab">
+        <h2 class="fs-title">What is your Mobile Number (with country code)??</h2>
+        <input required type="tel"  name="telephone" placeholder="Type your answer here" />
+    </div>
+
+ <div class="tab">
+  <h2 class="fs-title">What is your full Name??</h2>
+  <input required type="text" name="name"  placeholder="Type your answer here" />
+    </div>
+  
+    <div class="tab">
+      <h2 class="fs-title">This is the last question. If you have any comments to your application, please write them below.</h2>
+      <h3 class="fs-subtitle">For example, you can tell us why do you want to work with us.</h3>
+      <input required type="text" name="comment" placeholder="Type your answer here" />
+    </div>
+    
+      
         
 
 
@@ -299,6 +369,12 @@ button:hover {
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+
           <span class="step"></span>
         </div>
       </form>
@@ -317,13 +393,7 @@ button:hover {
                                 <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
                                 <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
                                 <p><i class="fa fa-envelope"></i>info@example.com</p>
-                                <!-- <div class="footer-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-youtube"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div> -->
+                      
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">

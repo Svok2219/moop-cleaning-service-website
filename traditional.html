@@ -34,15 +34,134 @@
             opacity: 0.8;
         }
 
-        .form-radio {
+        .radio {
             display: flex;
             align-items: center;
             margin-right: 20px;
         }
 
-        .form-radio input {
+        .radio input {
             margin-right: 10px;
         }
+
+
+
+
+
+        #regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 30px;
+  width: 70%;
+  /* min-width: 300px; */
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #187D90;
+;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #187D90;
+;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #187D90;
+;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #187D90;
+;
+}
+
+.form-check {
+  display: flex;
+  align-items: center; /* Vertically center the radio dot and label */
+  margin-bottom: 10px;
+}
+
+.form-check .form-check-input {
+  margin-right: 10px; /* Add some spacing between the radio dot and label */
+}
+
+.form-check-label {
+  flex: 1; /* Allow the label to take up the remaining space to the right */
+}
+
+/* 
+.radio {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+         input {
+            margin-right: 10px;
+        }
+        .form-check-label {
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+       */
+
+       .form-check-input[type="radio"] {
+            /* position: absolute; */
+            width: fit-content;
+            /* top: 50%; */
+            /* right: 0;
+            left: 10;
+            
+            transform: translateY(-50%); */
+        } 
+</style>
     </style>
 </head>
 
@@ -115,185 +234,153 @@
     </div>
     <!-- Header End -->
     <!-- MultiStep Form -->
-    <div class="container">
+  
 
+    <form id="regForm" onsubmit="submit()">
+        <h1 style="color: #187D90;" class="mb-3">Application</h1>
+       
+        <div class="tab">
+            
+            <h2 class="fs-title">Poland: What city/region do you want to work in?</h2>
+            <h3 class="fs-subtitle">If your city is not on the list, choose the one closest to you. You can add more cities in the comments in the last step of this form.</h3>
+            
 
-    <div class="row mx-o mx-md-5 d-flex justify-content-center align-items-center min-vh-100 overflow-x-auto">
+            <div class="form-check d-flex justify-content-between  my-3  my-md-0">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="selfYes" value="Yes">
 
-        <!-- <ul class="col-md-10 mt-3 " id="progressbar">
-            <li class="active my-1">City/region</li>
-            <li class="my-1">Employment</li>
-            <li class="my-1">VAT</li>
-            <li class="my-1">Wage/hr</li>
-            <li class="my-1">English Level</li>
-            <li class="my-1">Email</li>
-            <li class="my-1">Mobile NO</li>
-            <li class="my-1">Full Name</li>
-            <li class="my-1">FAQ</li>
-        </ul> -->
+                <label class="form-check-label" for="selfYes">A) Yes, I am registered as self-employed and have a REGON number</label>
 
-        <div class="col-md-6 col-md-offset-3 overflow-y-auto px-0">
-            <form id="msform">
-                <!-- progressbar -->
+            </div>
+            <div class="form-check  my-3  my-md-0">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="companyYes" value="CompanyYes">
+                <label class="form-check-label" for="companyYes">B) No, but I have a cleaning company with a REGON number</label>
+            </div>
+            <div class="form-check  my-3  my-md-0">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="registerYes" value="RegisterYes">
+                <label class="form-check-label" for="registerYes">C) No, but I want to register as a self-employed cleaner</label>
+            </div>
+            <div class="form-check  my-3  my-md-0">
+                <input required type="radio" class="form-check-input radio" name="radio-group-1" id="jobYes" value="JobYes">
+                <label class="form-check-label" for="jobYes">D) No, I am looking for a traditional job</label>
+            </div>
 
-                <!-- fieldsets -->
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">Poland: What city/region do you want to work in?</h2>
-                    <h3 class="fs-subtitle">If your city is not on the list, choose the one closest to you. You
-                        can add more cities in the comments in the last step of this form.</h3>
+          </div>
 
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city1" value="Gdansk" checked>
-                        <label for="city1">A) Gdansk</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city2" value="Katowice">
-                        <label for="city2">B) Katowice</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city3" value="Krakow">
-                        <label for="city3">C) Krakow</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city4" value="Lodz">
-                        <label for="city4">D) Lodz</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city5" value="Lublin">
-                        <label for="city5">E) Lublin</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city6" value="Poznan">
-                        <label for="city6">F) Poznan</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city7" value="Warsaw">
-                        <label for="city7">G) Warsaw</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city8" value="Wroclaw">
-                        <label for="city8">H) Wroclaw</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="city" id="city9" value="Other">
-                        <label for="city9">I) Other</label>
-                    </div>
+        <div class="tab">
+          <h2 class="fs-title">Poland: Are you registered as a self-employed person with REGON number? This question is required.*</h2>
 
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">Poland: Are you registered as a self-employed person with REGON
-                        number? This question is required.*</h2>
-                    <!-- <h3 class="fs-subtitle">If your city is not on the list, choose the one closest to you. You can add more cities in the comments in the last step of this form.</h3> -->
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="selfEmployed" id="self1" value="Yes, I am registered as self-employed and have a REGON number">
-                        <label for="self1">A) Yes, I am registered as self-employed and have a REGON number</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="selfEmployed" id="self2" value="No, but I have a cleaning company with a REGON number">
-                        <label for="self2">B) No, but I have a cleaning company with a REGON number</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="selfEmployed" id="self3" value="No, but I want to register as a self-employed cleaner">
-                        <label for="self3">C) No, but I want to register as a self-employed cleaner</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="selfEmployed" id="self4" value="No, I am looking for a traditional job">
-                        <label for="self4">D) No, I am looking for a traditional job</label>
-                    </div>
-
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">Are you a VAT-payer?*</h2>
-                    <!-- <h3 class="fs-subtitle">Your presence on the social network</h3> -->
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="vatPayer" id="vat1" value="Yes">
-                        <label for="vat1">A) Yes</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="vatPayer" id="vat2" value="NO, I am exempt from VAT">
-                        <label for="vat2">B) NO, I am exempt from VAT</label>
-                    </div>
-                    
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">What is the minimum rate per hour (in Euros) you can work for?</h2>
-                    <!-- <h3 class="fs-subtitle">Fill in your credentials</h3> -->
-                    <input type="number" name="wage" placeholder="Type your answer here" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-
-                </fieldset>
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">What level is your English?*</h2>
-                    <!-- <h3 class="fs-subtitle">Your presence on the social network</h3> -->
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="englishLevel" id="english1" value="I do not speak English">
-                        <label for="english1">A) I do not speak English</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="englishLevel" id="english2" value="Basic">
-                        <label for="english2">B) Basic</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="englishLevel" id="english3" value="Good">
-                        <label for="english3">C) Good</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="englishLevel" id="english4" value="Excellent">
-                        <label for="english4">D) Excellent</label>
-                    </div>
-<div class="form-radio  my-3  my-md-0">
-                        <input type="radio" name="englishLevel" id="english5" value="I'm a native English Speaker">
-                        <label for="english5">E) I'm a native English Speaker</label>
-                    </div>
-                    
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">What is your email address??</h2>
-                    <!-- <h3 class="fs-subtitle">Fill in your credentials</h3> -->
-                    <input type="email" name="email" placeholder="Type your answer here" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">What is your Mobile Number(with country code)??</h2>
-                    <!-- <h3 class="fs-subtitle">Fill in your credentials</h3> -->
-                    <input type="tel" name="number" placeholder="Type your answer here" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">What is your full Name??</h2>
-                    <h3 class="fs-subtitle">Fill in your credentials</h3>
-                    <input type="text" name="text" placeholder="Type your answer here" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-                <fieldset class="my-3 my-md-0">
-                    <h2 class="fs-title">This is the last question. If you have any comments to your application, please write them below.</h2>
-                    <h3 class="fs-subtitle">For example, you can tell us why do you want to work with us.</h3>
-                    <input type="text" name="comment" placeholder="Type your answer here" />
-                    <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    <input  name="submit" class="submit action-button" value="Submit"  />
-                </fieldset>
-
-            </form>
+          <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="radio-group-2" id="selfYes" value="Yes">
+            <label class="form-check-label" for="selfYes">A) Yes, I am registered as self-employed and have a REGON number</label>
         </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="radio-group-2" id="companyYes" value="CompanyYes">
+            <label class="form-check-label" for="companyYes">B) No, but I have a cleaning company with a REGON number</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="radio-group-2" id="registerYes" value="RegisterYes">
+            <label class="form-check-label" for="registerYes">C) No, but I want to register as a self-employed cleaner</label>
+        </div>
+        </div>
+
+                  
+
+        <div class="tab">
+          <h2 class="fs-title">Are you a VAT-payer?*</h2>
+
+          <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="vatPayer" id="vatYes" value="Yes">
+            <label class="form-check-label" for="vatYes">A) Yes</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="vatPayer" id="vatNo" value="No">
+            <label class="form-check-label" for="vatNo">B) NO, I am exempt from VAT</label>
+        </div>
+
+        </div>
+
+        <div class="tab">
+          <h2 class="fs-title">What is the minimum rate per hour (in Euros) you can work for?</h2>
+          <input required type="number"  name="wage" placeholder="Type your answer here" />
+      </div>
+
+        <div class="tab">
+          <h2 class="fs-title">What level is your English?*</h2>
+          <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english0" value="None">
+            <label class="form-check-label" for="english0">A) I do not speak English</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english1" value="Basic">
+            <label class="form-check-label" for="english1">B) Basic</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english2" value="Good">
+            <label class="form-check-label" for="english2">C) Good</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english3" value="Excellent">
+            <label class="form-check-label" for="english3">D) Excellent</label>
+        </div>
+        <div class="form-check  my-3  my-md-0">
+            <input required type="radio" class="form-check-input" name="englishLevel" id="english4" value="Native">
+            <label class="form-check-label" for="english4">E) I'm a native English Speaker</label>
+        </div>
+        </div>
+
+          <div class="tab">
+                <h2 class="fs-title">What is your email address??</h2>
+  
+                <input required type="email" name="email" placeholder="Type your answer here" />
+
+          </div>
+
+       
+
+      <div class="tab">
+        <h2 class="fs-title">What is your Mobile Number (with country code)??</h2>
+        <input required type="tel"  name="telephone" placeholder="Type your answer here" />
     </div>
-    <!-- /.MultiStep Form -->
-</div>
+
+ <div class="tab">
+  <h2 class="fs-title">What is your full Name??</h2>
+  <input required type="text" name="name"  placeholder="Type your answer here" />
+    </div>
+  
+    <div class="tab">
+      <h2 class="fs-title">This is the last question. If you have any comments to your application, please write them below.</h2>
+      <h3 class="fs-subtitle">For example, you can tell us why do you want to work with us.</h3>
+      <input required type="text" name="comment" placeholder="Type your answer here" />
+    </div>
+    
+      
+        
+
+
+
+        <div style="overflow:auto;" class="mt-5">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+
+          <span class="step"></span>
+        </div>
+      </form>
+      
+
+
 
             <!-- Footer Start -->
             <div class="footer">
@@ -306,13 +393,7 @@
                                 <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
                                 <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
                                 <p><i class="fa fa-envelope"></i>info@example.com</p>
-                                <!-- <div class="footer-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-youtube"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div> -->
+                      
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">
@@ -349,6 +430,35 @@
                 </div>
 
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -780,8 +890,88 @@ c4.391,0,6.742-2.352,6.742-6.586c0-4.156-3.291-6.042-7.372-6.042h-11.607V301.981
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="js/Validation.js"></script>
+    <!-- <script src="js/Validation.js"></script> -->
     
+
+
+
+    <script>
+        var currentTab = 0;
+        showTab(currentTab);
+        
+        function showTab(n) {
+          var x = document.getElementsByClassName("tab");
+          x[n].style.display = "block";
+          if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+          } else {
+            document.getElementById("prevBtn").style.display = "inline";
+          }
+          if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Submit";
+          } else {
+            document.getElementById("nextBtn").innerHTML = "Next";
+          }
+          fixStepIndicator(n)
+        }
+        
+        function nextPrev(n) {
+          var x = document.getElementsByClassName("tab");
+        
+          if (n == 1 && !validateForm()) return false;
+          x[currentTab].style.display = "none";
+          currentTab = currentTab + n;
+          if (currentTab >= x.length) {
+            document.getElementById("regForm").submit();
+            return false;
+          }
+          showTab(currentTab);
+        }
+        
+        function validateForm() {
+          var x, y, i, r, valid = true;
+          x = document.getElementsByClassName("tab");
+          y = x[currentTab].getElementsByTagName("input");
+          r = x[currentTab].getElementsByClassName("form-check-input");
+        
+          for (i = 0; i < y.length; i++) {
+            if (y[i].value == "") {
+              y[i].className += " invalid";
+              valid = false;
+            }
+          }
+          
+          for (i = 0; i < r.length; i++) {
+            var radioGroup = r[i].name;
+            var radioElements = document.getElementsByName(radioGroup);
+            var radioChecked = false;
+            for (var j = 0; j < radioElements.length; j++) {
+              if (radioElements[j].checked) {
+                radioChecked = true;
+                break;
+              }
+            }
+            if (!radioChecked) {
+              r[i].classList.add("invalid");
+              valid = false;
+            }
+          }
+        
+          if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+          }
+          return valid;
+        }
+        
+        function fixStepIndicator(n) {
+          var i, x = document.getElementsByClassName("step");
+          for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+          }
+          x[n].className += " active";
+        }
+      </script>
+      
 </body>
 
 </html>
